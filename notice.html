@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>공지사항</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+
+
+  <!-- <link rel="stylesheet" href="css/aos.css"> -->
+
+  <link rel="stylesheet" href="../css/notice.css">
+
+</head>
+<body>
+
+<div class="site-wrap">
+  <header class="site-navbar" role="banner">
+    <div class="site-navbar-top">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+            <form action="" class="site-block-top-search">
+              <span class="icon icon-search2"></span>
+              <input type="text" class="form-control border-0" placeholder="Search">
+            </form>
+          </div>
+
+          <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+            <div class="site-logo">
+              <a href="index.html" class="js-logo-clone">NaeMeal</a>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-12 order-3 order-md-3 text-right">
+            <div class="site-top-icons">
+              <ul>
+                <li><a><span id="loginUser"></span></a></li>
+                <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
+                <li><a href="/mypage.html"><span>MyPage</span></a></li>
+                <li class="d-inline-block d-md-none ml-md-0"><a href="#"
+                                                                class="site-menu-toggle js-menu-toggle"><span
+                    class="icon-menu"></span></a></li>
+                <button type="button" class="submit" onclick="signout()">logout</button>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <nav class="site-navigation text-right text-md-center" role="navigation">
+      <div class="container">
+        <ul class="site-menu js-clone-nav d-none d-md-block">
+          <li class="has-children">
+            <a href="about.html">프로그램</a>
+            <ul class="dropdown">
+              <li><a href="cookProgramPost_menu1.html">요리 프로그램</a></li>
+            </ul>
+          </li>
+          <li><a href="myRecipe.html">나만의 레시피</a></li>
+          <li><a href="notice.html">공지사항</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="index.html">NaeMeal</a> <span
+            class="mx-2 mb-0">/</span> <strong class="text-black">공지사항</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="site-section">
+    <div class="container-xl">
+      <div class="table-responsive">
+        <div class="table-wrapper">
+          <div class="table-title">
+            <div class="row">
+              <div class="col-sm-6">
+                <h2><b>공지사항</b></h2>
+              </div>
+              <div class="col-sm-6">
+                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><span>공지사항 작성</span></a>
+
+              </div>
+            </div>
+          </div>
+          <table class="table table-striped table-hover">
+            <thead>
+
+            <tr>
+
+              <th>
+                      <span class="custom-checkbox">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll"></label>
+                      </span>
+              </th>
+              <th>제목</th>
+              <th>내용</th>
+              <th>작성 시간</th>
+              <th>수정 또는 삭제</th>
+            </tr>
+            </thead>
+            <tbody id="notice_body">
+
+
+            </tbody>
+          </table>
+          <div class="clearfix">
+            <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+            <ul class="pagination">
+              <li class="page-item disabled"><a href="#">이전</a></li>
+              <li class="page-item" active><a href="#" class="page-link">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item "><a href="#" class="page-link">3</a></li>
+              <li class="page-item"><a href="#" class="page-link">4</a></li>
+              <li class="page-item"><a href="#" class="page-link">5</a></li>
+              <li class="page-item"><a href="#" class="page-link">다음</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit Modal HTML    작성하기      -->
+    <div id="addEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">공지사항 작성</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>제목</label>
+                <input type="text" class="form-control" required id="post_title">
+              </div>
+              <div class="form-group">
+                <label>내용</label>
+                <input type="text" class="form-control" required id="post_content">
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-success" value="Add" onclick="post_notice()">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Edit Modal HTML  수정하기  -->
+    <div id="editEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">공지 수정하기</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>제목</label>
+                <input type="text" class="form-control" required id="patch_title">
+              </div>
+              <div class="form-group">
+                <label>내용</label>
+                <input type="text" class="form-control" required id="patch_content">
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-info" value="Save" onclick="patch_notice()">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Delete Modal HTML -->
+    <div id="deleteEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">공지 삭제하기</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>정말로 삭제하시겠습니까?</p>
+              <p class="text-warning"><small>실행 한 후에는 되돌릴 수 없는 작업입니다.</small></p>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-danger" value="Delete" onclick="delete_notice()">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 모달 -->
+    <div id="notice_Modal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">공지사항</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>제목 :</label>
+                <span id="notice_title"></span>
+              </div>
+              <div class="form-group">
+                <label>내용 :</label>
+                <span id="notice_content"></span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script>
+  $(document).ready(function () {
+    // Activate tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
+    // Select/Deselect checkboxes
+    const checkbox = $('table tbody input[type="checkbox"]');
+    $("#selectAll").click(function () {
+      if (this.checked) {
+        checkbox.each(function () {
+          this.checked = true;
+        });
+      } else {
+        checkbox.each(function () {
+          this.checked = false;
+        });
+      }
+    });
+    checkbox.click(function () {
+      if (!this.checked) {
+        $("#selectAll").prop("checked", false);
+      }
+    });
+  });
+</script>
+
+<script src="js/main.js"></script>
+<!-- 공지사항 불러오기   -->
+<script>
+  $(window.document).ready(function () {
+    loadNoticeList();
+  })
+
+  function loadNoticeList() {
+    const settings = {
+      "url": "https://43.201.189.131:8080/admin/notices",
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken')
+      },
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response['data'])
+      const obj = response['data'];
+      for (let i = 0; i < obj.length; i++) {
+        const e = obj[i];
+        const title = e['title'];
+        const content = e['content'];
+        const noticeId = e['noticeId'];
+
+        const notice_date = new Date(e["createdAt"])
+        const year = notice_date.getFullYear();
+        const month = notice_date.getMonth();
+        const date = notice_date.getDate();
+        const hour = notice_date.getHours()
+        const min = notice_date.getMinutes();
+        const temp_html = `
+      <tr>
+  <td>
+    <span class="custom-checkbox">
+      <input type="checkbox" id="checkbox3" name="options[]" value="1">
+      <label for="checkbox3"></label>
+    </span>
+  </td>
+  <td><a href="#" data-notice-id="${noticeId}" data-toggle="modal" data-target="#notice_Modal">${title}</a></td>
+<td><a href="#" data-notice-id="${noticeId}" data-toggle="modal" data-target="#notice_Modal">${content}</a></td>
+
+  <td>${year}/${month}/${date}/${hour}:${min}</td>
+
+  <td>
+    <a href="#editEmployeeModal" class="edit" notice-id="${noticeId}"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">수정</i></a>
+    <a href="#deleteEmployeeModal" class="delete" notice-id="${noticeId}"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">삭제</i></a>
+  </td>
+</tr>
+
+      `
+        $('#notice_body').append(temp_html)
+
+      }
+
+    });
+  }
+
+  // 공지사항 작성하기
+  function post_notice() {
+    const settings = {
+      "url": "https://43.201.189.131:8080/admin/notices",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken'),
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({
+        "title": $('#post_title').val(),
+        "content": $('#post_content').val()
+      }),
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+  }
+
+  var currentNoticeId;
+  // 공지사항 수정하기
+  $(document).on('click', '.edit', function () {
+    currentNoticeId = $(this).attr('notice-id');
+  });
+
+  function patch_notice() {
+    console.log(currentNoticeId);
+    const settings = {
+      "url": "https://43.201.189.131:8080/admin/notices/" + currentNoticeId,
+      "method": "PATCH",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken'),
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({
+        "title": $('#patch_title').val(),
+        "content": $('#patch_content').val()
+      }),
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+  }
+
+  //// 공지사항 삭제
+
+  $(document).on('click', '.delete', function () {
+    currentNoticeId = $(this).attr('notice-id');
+
+    const settings = {
+      "url": "https://43.201.189.131:8080/admin/notices/" + currentNoticeId,
+      "method": "DELETE",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken'),
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({})
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+  });
+
+  ///공지사항 선택조회
+  $(document).on('click', 'a[data-notice-id]', function () {
+    const currentNoticeId = $(this).data('notice-id');
+
+    // 공지사항 내용 조회
+    $.ajax({
+      type: "GET",
+      url: "https://43.201.189.131:8080/admin/notices/" + currentNoticeId,
+      headers: {
+        "Authorization": localStorage.getItem('accessToken'),
+        "Content-Type": "application/json"
+      },
+      success: function (response) {
+        console.log(response)
+        const {title, content} = response.data;
+        // 모달창의 제목과 내용에 값을 넣어줍니다.
+        $('#notice_Modal .modal-body #notice_title').text(title);
+        $('#notice_Modal .modal-body #notice_content').text(content);
+
+        // 모달창을 보여줍니다.
+        $('#notice_Modal').modal('show');
+      }
+    });
+  });
+
+</script>
+</body>
+</html>

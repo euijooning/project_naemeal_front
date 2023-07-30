@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>프로젝트 내밀 - 요리 프로그램</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/comment.css">
+
+</head>
+
+<body>
+
+<div class="site-wrap">
+  <header class="site-navbar" role="banner">
+    <div class="site-navbar-top">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+            <form action="" class="site-block-top-search">
+              <span class="icon icon-search2"></span>
+              <input type="text" class="form-control border-0" placeholder="Search">
+            </form>
+          </div>
+
+          <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+            <div class="site-logo">
+              <a href="index.html" class="js-logo-clone">NaeMeal</a>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-12 order-3 order-md-3 text-right">
+            <div class="site-top-icons">
+              <ul>
+                <li><a><span id="loginUser"></span></a></li>
+                <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
+                </li>
+                <li><a href="/mypage.html"><span>MyPage</span></a></li>
+                <li class="d-inline-block d-md-none ml-md-0"><a href="#"
+                                                                class="site-menu-toggle js-menu-toggle"><span
+                    class="icon-menu"></span></a></li>
+                <button type="button" class="submit" onclick="signout()">logout</button>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <nav class="site-navigation text-right text-md-center" role="navigation">
+      <div class="container">
+        <ul class="site-menu js-clone-nav d-none d-md-block">
+          <li class="has-children active">
+            <a href="about.html">프로그램</a>
+            <ul class="dropdown">
+              <li><a href="cookProgramPost_menu1.html">요리 프로그램</a></li>
+            </ul>
+          </li>
+          <li><a href="myRecipe.html">나만의 레시피</a></li>
+          <li><a href="notice.html">공지사항</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="index.html">나만의 레시피</a> <span
+            class="mx-2 mb-0">/</span>
+          <strong class="text-black"><span id="title"></span></strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img id="image" style="height: 300px;" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <div id="title">
+            <h2 class="text-black"></h2>
+          </div>
+
+          <div id="title">
+            <p class="mb-4" id="content"><strong></strong></p>
+          </div>
+          <div id="LocalDateTime">
+            <p><strong class="text-primary h4"></strong></p>
+          </div>
+          <div id="area">
+            <p><strong class="text-primary h4"></strong></p>
+          </div>
+          <div id="locationName">
+            <p><strong class="text-primary h4"></strong></p>
+          </div>
+          <div id="maxEnrollmentNum">
+            <th>
+              <p></p>
+            </th>
+            <th>
+              <p><span id="maxEnrollmentNumText"></span>명 모집</p>
+            </th>
+            <th>
+              <p>(<span id="postStatus"></span>)</p>
+            </th>
+          </div>
+
+
+        </div>
+        <!-- <p><a type="button" class="buy-now btn btn-sm btn-primary" onclick="enrollment()">참여 신청</a></p>    -->
+        <button class="button" data-for="js_basic-popup">참여 신청</button>
+        <div class="popup js_basic-popup">
+          <div class="popup__background"></div>
+          <div class="popup__content">
+            <p>ID</p>
+            <input type="text" id="userId" name="userId" readonly>
+            <p>
+              이름
+            </p>
+            <input type="text" id="username" name="username">
+            <p>연락처</p>
+            <input type="text" id="tel" name="tel">
+            <p>
+              <button class="button" data-for="js_basic-popup" onclick="enrollment()">신청하기</button>
+              <button class="button" data-for="js_basic-popup">닫기</button>
+          </div>
+        </div>
+
+        <button class="button" data-for="js_basic-popup2" onclick="getEnrollmentListOnClick()">참여 신청
+          조회
+        </button>
+        <div class="popup js_basic-popup2">
+          <div class="popup__background"></div>
+          <div class="popup__content">
+            <p>
+            <h1 class="con">신청 조회</h1>
+            <section class="article-list table-common con">
+              <table id="application_list">
+                <thead>
+                <tr>
+                  <th> userId</th>
+                  <th> username</th>
+                  <th> tel</th>
+                  <th> status</th>
+                </tr>
+                </thead>
+
+              </table>
+            </section>
+
+
+            </p>
+            <button class="button" data-for="js_basic-popup2">닫기</button>
+          </div>
+        </div>
+
+        <tr>
+          <th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="updatePost()">수정</a>
+          </th>
+          <th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="deletePost()">삭제</a>
+          </th>
+        <tr>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="comment-box">
+  <div class="area-write">
+    <textarea class="field" placeholder="댓글을 입력하세요." name="comments" id="comments" cols="80"
+              rows="1"></textarea>
+  </div>
+  <button type="button" class="btn btn-success btn-sm" onclick="writeComment()">작성</button>
+</div>
+
+
+<!-- Edit Modal HTML  수정하기  -->
+<div id="editEmployeeModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Comment</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>수정할 내용을 입력하세요.</label>
+            <input type="text" class="form-control" required id="patch_comments">
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+          <input type="button" class="btn btn-info" value="Save" onclick="updateComment()">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</div>
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Roboto:100,400");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  *:before,
+  *:after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    padding: 24px 32px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ddd;
+    font-size: 32px;
+    font-weight: 100;
+    color: #626262;
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
+
+  a {
+    color: #2196f3;
+  }
+
+  input:focus {
+    box-shadow: none;
+    outline: 0;
+  }
+
+  input[type=text] {
+    width: 400px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+
+  .button {
+    margin-bottom: 4px;
+    padding: 8px 12px;
+    border: 1px solid #7971ea;
+    border-radius: 3px;
+    background: #7971ea;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button--warning {
+    border: 1px solid;
+  }
+
+  .popup {
+    visibility: hidden;
+    transition: visibility 0ms linear 0.3s;
+
+  }
+
+  .popup--visible {
+    visibility: visible;
+    transition: visibility 0ms;
+  }
+
+  .popup__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .popup--visible .popup__background {
+    opacity: 1;
+  }
+
+  .popup__content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10001;
+    min-width: 400px;
+    padding: 25px 50px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+    -webkit-animation: hide-popup 0.3s forwards;
+    animation: hide-popup 0.3s forwards;
+    /**
+    * Popup types.
+    */
+  }
+
+  .popup--visible .popup__content {
+    -webkit-animation: show-popup 0.3s forwards;
+    animation: show-popup 0.3s forwards;
+  }
+
+  .popup--icon .popup__content {
+    padding-top: 130px;
+
+  }
+
+  .popup--icon .popup__content:before,
+  .popup--icon .popup__content:after {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    height: 90px;
+    width: 90px;
+  }
+
+  .popup--icon .popup__content:before {
+    content: "";
+    border: 3px solid currentColor;
+    border-radius: 50%;
+    transform: translateX(-50%) scale(1, 0);
+    opacity: 0;
+  }
+
+  .popup--icon .popup__content:after {
+    content: "✓";
+    line-height: 90px;
+    font-size: 45px;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+
+  .popup--visible.popup--icon .popup__content:before {
+    -webkit-animation: show-icon-cirlce 0.3s forwards 0.15s;
+    animation: show-icon-cirlce 0.3s forwards 0.15s;
+  }
+
+  .popup--visible.popup--icon .popup__content:after {
+    -webkit-animation: show-icon 0.3s forwards 0.3s;
+    animation: show-icon 0.3s forwards 0.3s;
+  }
+
+  .popup--icon .popup__content__title {
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 100;
+    color: #626262;
+  }
+
+  @-webkit-keyframes show-popup {
+    0% {
+      transform: translate(-50%, -50%) scale(0.7);
+      opacity: 0;
+    }
+
+    45% {
+      transform: translate(-50%, -50%) scale(1.05);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes show-popup {
+    0% {
+      transform: translate(-50%, -50%) scale(0.7);
+      opacity: 0;
+    }
+
+    45% {
+      transform: translate(-50%, -50%) scale(1.05);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @-webkit-keyframes hide-popup {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes hide-popup {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes show-icon {
+    0% {
+      transform: translateX(-50%) scale(0);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes show-icon {
+    0% {
+      transform: translateX(-50%) scale(0);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+
+<style>
+  html {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  /* 노말라이즈 */
+  body,
+  ul,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a:link {
+    color: lightblue;
+  }
+
+  /* 라이브러리 */
+  .con {
+    margin: 0 auto;
+  }
+
+  .img-box > img {
+    width: 100%;
+    display: block;
+  }
+
+  .row::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+
+  .line-height-0-ch-only > * {
+    line-height: normal;
+  }
+
+  /* 커스텀 */
+  /* 반응형 레이아웃 */
+  .con {
+    max-width: 950px;
+  }
+
+  .top-menu a {
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .table-common > table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-common .btn-box {
+    text-align: center;
+  }
+
+  .table-common > table th,
+  .table-common > table td {
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+  .article-list table {
+    border: none;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+  }
+
+  .article-list > table th,
+  .article-list > table td {
+    border: none;
+  }
+
+  .article-list > table td {
+    border-bottom: 1px solid lightgray;
+  }
+
+  .article-list > table thead {
+    border-bottom: 2px solid lightgray;
+    background-color: #F5F5F5;
+  }
+</style>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+
+<script src="js/main.js"></script>
+<script>
+  const addButtonTrigger = (el) => {
+    el.addEventListener('click', () => {
+      const popupEl = document.querySelector(`.${el.dataset.for}`);
+      popupEl.classList.toggle('popup--visible');
+    });
+  };
+
+  Array.from(document.querySelectorAll('button[data-for]'))
+  .forEach(addButtonTrigger);
+</script>
+
+<!-- 선택 조회 -->
+<script>
+  $(window.document).ready(function () {
+    workPost();
+  })
+
+  $(window.document).ready(function () {
+    getMessages();
+  })
+
+  function workPost() {
+    const id = document.location.href.split("=")[1];
+    $.ajax({
+      type: "GET",
+      url: "https://43.201.189.131:8080/cookprogram/" + id,
+      data: {},
+      headers: {
+        "Authorization": localStorage.getItem('accessToken')
+      },
+      success: function (response) {
+        const e = (response['data'])
+        $('#image').attr('src', e['image'])
+        $('#title').text(e['title'])
+        $('#content').text(e['content'])
+        $('#area').text(e['area'])
+        $('#locationName').text(e['locationName'])
+        $('#LocalDateTime').text(e['DeadLine'])
+        $('#maxEnrollmentNumText').text(e['maxEnrollmentNum'])
+        $('#postStatus').text(e['postStatus'] === 'TRUE' ? '모집 중' : '모집완료');
+
+      },
+    })
+  }
+
+</script>
+
+<!-- 선택 수정 -->
+<script>
+  function updatePost() {
+    const id = document.location.href.split("=")[1];
+    window.location.href = 'cookProgramPost.html?id=' + id
+  }
+</script>
+
+<!-- 선택 삭제 -->
+<script>
+  $(window.document).ready(function () {
+  })
+
+  function deletePost() {
+    const id = document.location.href.split("=")[1];
+    $.ajax({
+      type: "DELETE",
+      url: "https://43.201.189.131:8080/cookprogram/" + id,
+      data: {},
+      headers: {
+        Authorization: localStorage.getItem("accessToken")
+      },
+      success: function (response) {
+        alert("삭제되었습니다.")
+        window.location.href = "/cookProgramPost_menu1.html"
+      },
+      error: function (errorMessage) {
+        alert(errorMessage["responseJSON"]["message"])
+      }
+    })
+  }
+</script>
+
+<!-- 유저아이디 가져오기 -->
+<script>
+  $(window.document).ready(function () {
+    userprofile();
+    document.location.href.includes("id");
+  })
+
+  function userprofile() {
+    $.ajax({
+      type: "GET",
+      url: "https://43.201.189.131:8080/profiles/my",
+      data: {},
+      headers: {
+        "Authorization": localStorage.getItem('accessToken')
+      },
+      success: function (response) {
+        const user = response['data']['userId']
+        $('#userId').attr('value', user)
+      },
+    })
+  }
+
+
+</script>
+
+<!-- 참여 신청 -->
+<script>
+  function enrollment() {
+    const id = document.location.href.split("=")[1];
+    $.ajax({
+      url: "https://43.201.189.131:8080/posts/" + id + "/enrollments",
+      method: "POST",
+      timeout: 0,
+      headers: {
+        "Authorization": localStorage.getItem("accessToken"),
+        "Content-Type": "application/json"
+      },
+      data: JSON.stringify({
+        userId: $('#userId').val(),
+        username: $("#username").val(),
+        tel: $("#tel").val()
+      }),
+      success: function (response) {
+        alert("신청하였습니다.")
+      },
+      error: function (error) {
+        alert(error.responseJSON.message)
+
+      }
+    })
+  }
+</script>
+
+<!-- 참여조회 -->
+<script>
+  $(window.document).ready(function () {
+    getEnrollmentList();
+  })
+
+  function getEnrollmentList() {
+    const id = document.location.href.split("=")[1];
+    $.ajax({
+      type: "GET",
+      url: "https://43.201.189.131:8080/posts/" + id + "/enrollments",
+      data: {},
+      headers: {
+        "Authorization": localStorage.getItem('accessToken')
+      },
+      success: function (response) {
+        const arr = (response['data'])
+        for (let i = 0; i < arr.length; i++) {
+          const obj = arr[i];
+          const userId = obj["userId"]
+          const username = obj["username"]
+          const tel = obj["tel"]
+          const enrollmentStatus = obj["enrollmentStatus"] === "TRUE"
+          const tempHtml = `
+            <tbody>
+                <tr>
+                  <td>${userId}</td>
+                  <td>${username}</td>
+                  <td>${tel}</td>
+                  <td>${enrollmentStatus ? "신청 완료" : "대기 중"}</td>
+                </tr>
+            </tbody>
+            `
+          $("#application_list").append(tempHtml)
+
+        }
+
+      },
+    })
+  }
+
+  function getEnrollmentListOnClick() {
+    $('#application_list').empty();
+    getEnrollmentList();
+  }
+</script>
+
+
+<script>
+  //댓글 조회
+  function getMessages() {
+    // url에서 해당 postId값을 가져옵니다.
+    const id = document.location.href.split("=")[1];
+    const settings = {
+      "url": "https://43.201.189.131:8080/posts/" + id + "/comments",
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken'),
+      },
+    };
+    console.log(id);
+
+    $.ajax(settings).done(function (response) {
+      console.log(response['data'])
+      const obj = response['data'];
+      for (let i = 0; i < obj.length; i++) {
+        const e = obj[i];
+        const commentId = e['commentId'];
+        const comments = e['comments'];
+        const nickname = e['nickname'];
+        const postId = e['postId'];
+
+        console.log(postId)
+
+        const comment_date = new Date(e["modifiedAt"])
+
+        const year = comment_date.getFullYear();
+        const month = comment_date.getMonth();
+        const date = comment_date.getDate();
+        const hour = comment_date.getHours();
+        const min = comment_date.getMinutes();
+        console.log(response);
+
+        const temp_html = `
+            <div class="row d-flex justify-content-center mt-100 mb-100">
+        <div class="col-lg-6">
+          <div class="card">
+            
+            <div class="comment-widgets">
+              <!-- Comment Row -->
+              <div class="d-flex flex-row comment-row m-t-0">
+
+                <div class="comment-text w-100">
+                  <h6 class="font-medium">${nickname}</h6> <span class="m-b-15 d-block">${comments}</span>
+                  <div class="comment-footer"> <span class="text-muted float-right">${year}/${month}/${date}/${hour}:${min}</span>
+                    <button class="btn btn-cyan btn-sm edit" id2=${commentId} data-toggle="modal" data-target="#editEmployeeModal" onclick="getComments(${commentId})"><i data-toggle="tooltip" title="Edit">수정</i></button>
+                    <button id="deleteComment" type="button" data-id2= ${commentId}  class="btn btn-danger btn-sm">삭제</button>
+                  </div>
+                </div>
+              </div> <!-- Comment Row -->
+            </div> <!-- Card -->
+          </div>
+        </div>
+      </div>
+    </div> `;
+
+        $('#comment-box').append(temp_html);
+        $('#patch_comments')
+      }
+    });
+  };
+
+  // 댓글 작성
+  function writeComment() {
+    // url에서 해당 postId값을 가져옵니다.
+    const id = document.location.href.split("=")[1];
+    const settings = {
+      "url": "https://43.201.189.131:8080/posts/" + id + "/comments",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken'),
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({
+        "comments": $('#comments').val()
+      }),
+    };
+
+    $.ajax(settings).done(function (response) {
+      alert('댓글 작성 완료');
+      console.log(response);
+      window.location.reload();
+    });
+  }
+
+  var id2;
+
+  $(document).on('mousedown', '.edit', function () {
+    id2 = $(this).attr('id2');
+  });
+  console.log(id2);
+
+  function getComments(commentId) {
+    const id = document.location.href.split("=")[1];
+    $.ajax({
+      type: "GET",
+      url: "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments",
+      data: {},
+      headers: {
+        "Authorization": localStorage.getItem('accessToken')
+      },
+      success: function (response) {
+        const e = (response['data'])
+        console.log(e)
+        for (let index = 0; index < e.length; index++) {
+          const obj = e[index];
+          if (commentId === obj['commentId']) {
+            $('#patch_comments').attr('value', obj['comments'])
+
+          }
+        }
+      },
+    })
+  }
+
+  function updateComment() {
+    const id = document.location.href.split("=")[1];
+
+    const settings = {
+      "url": "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
+      "method": "PATCH",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken'),
+        "Content-Type": "application/json"
+      },
+      "data": JSON.stringify({
+        "comments": $('#patch_comments').val()
+      }),
+    };
+
+    $.ajax(settings).done(function (response) {
+      alert('댓글 수정 완료');
+      console.log(response);
+      window.location.reload();
+    });
+  }
+
+  //댓글 삭제
+
+  $(document).on('click', '#deleteComment', function (e) {
+    const id = document.location.href.split("=")[1];
+    var id2 = $(e.target).data('id2');
+
+    const settings = {
+      "url": "https://43.201.189.131:8080/posts/" + id + "/comments/" + id2,
+      "method": "DELETE",
+      "timeout": 0,
+      "headers": {
+        "Authorization": localStorage.getItem('accessToken'),
+      },
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      alert('댓글 삭제 완료');
+      window.location.reload();
+    });
+  });
+
+
+</script>
+</body>
+<footer class="site-footer border-top">
+  <div class="container">
+    <div class="row pt-5 mt-5 text-center">
+      <div class="col-md-12">
+        <p>
+          This site is made with Naemeal by MegaIT
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</html>

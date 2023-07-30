@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.891.0.min.js"></script>
+  <title>S3 Upload Test</title>
+</head>
+<body style="text-align: center;">
+<h1>S3 Upload Test</h1>
+<input type="file" accept="image/*" id="file"/>
+<button type="button" onClick="uploadImg()">upload!</button>
+<br/> <br/>
+<div id="imgDiv"></div>
+</body>
+<script>
+  uploadImage = () => {
+    AWS.config.update({
+      region: 'ap-northeast-2',
+      credentials: new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'ap-northeast-2:9c02c6ba-4fac-4043-95ca-743a6da9e4e7'
+      })
+    })
+
+    let files = document.getElementById('file').files;
+    let file = files[0];
+    let fileName = file.name;
+
+    let upload = new AWS.S3.ManagedUpload({
+      params: {
+        Bucket: 'volunteering-project',
+        Key: fileName,
+        Body: file
+      }
+    })
+
+    const promise = upload.promise();
+    promise.then(
+        (data) => {
+          document.getElementById('imgDiv').innerHTML = `
+                    <img src=${data.Location} style="width:300px; height:300px; border:1px solid black;">
+                `;
+        },
+        (err) => {
+          console.log('err >', err)
+        }
+    )
+  }
+</script>
+</html>

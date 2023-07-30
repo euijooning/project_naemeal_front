@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>프로젝트 내밀 - 요리 프로그램</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="site-wrap">
+  <header class="site-navbar" role="banner">
+    <div class="site-navbar-top">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+            <form action="" class="site-block-top-search">
+              <span class="icon icon-search2"></span>
+              <input type="text" class="form-control border-0" placeholder="Search">
+            </form>
+          </div>
+
+          <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+            <div class="site-logo">
+              <a href="index.html" class="js-logo-clone">NaeMeal</a>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-12 order-3 order-md-3 text-right">
+            <div class="site-top-icons">
+              <ul>
+                <li><a><span id="loginUser"></span></a></li>
+                <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
+                <li><a href="/mypage.html"><span>MyPage</span></a></li>
+                <li class="d-inline-block d-md-none ml-md-0"><a href="#"
+                                                                class="site-menu-toggle js-menu-toggle"><span
+                    class="icon-menu"></span></a></li>
+                <button type="button" class="submit" onclick="signout()">logout</button>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <nav class="site-navigation text-right text-md-center" role="navigation">
+      <div class="container">
+        <ul class="site-menu js-clone-nav d-none d-md-block">
+          <li class="has-children active">
+            <a href="about.html">프로그램</a>
+            <ul class="dropdown">
+              <li><a href="cookProgramPost_menu1.html">요리 프로그램</a></li>
+            </ul>
+          </li>
+          <li><a href="myRecipe.html">나만의 레시피</a></li>
+          <li><a href="notice.html">공지사항</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="about.html">프로그램</a> <span class="mx-2 mb-0">/</span>
+          <strong
+              class="text-black">요리 프로그램</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+
+      <div class="row mb-5">
+        <div class="col-md-9 order-2">
+
+          <div class="row">
+            <div class="col-md-12 mb-5">
+              <div class="float-md-left mb-4">
+                <h2 class="text-black h5">요리 프로그램</h2>
+              </div>
+              <div class="d-flex">
+                <div class="dropdown mr-1 ml-md-auto">
+                  <button type="button" class="btn btn-secondary" aria-haspopup="true"
+                          aria-expanded="false">
+                    <a href="cookProgramPostCreate.html">게시글 등록하기</a>
+                  </button>
+                </div>
+                <div class="btn-group">
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" data-aos="fade-up">
+            <div class="col-md-12 text-center">
+              <div class="row mb-5" id="card_box">
+              </div>
+              <div class="site-block-27">
+                <ul>
+                  <li><a href="#">&lt;</a></li>
+                  <li class="active"><span>1</span></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&gt;</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 order-1 mb-5 mb-md-0">
+          <div class="border p-4 rounded mb-4">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">프로그램</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1"><a href="cookProgramPost_menu1.html"
+                                  class="d-flex"><span>요리 프로그램</span> <span
+                  class="text-black ml-auto"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+
+<script src="js/main.js"></script>
+
+<!-- 전체 조회 -->
+<script>
+  $(window.document).ready(function () {
+    workPostList();
+  })
+
+  function workPostList() {
+    $.ajax({
+      type: "GET",
+      url: "https://43.201.189.131:8080/cookprogram/getAllPost",
+      data: {},
+      headers: {
+        "Authorization": localStorage.getItem('accessToken')
+      },
+      success: function (response) {
+        const arr = (response['data'])
+        for (let i = 0; i < arr.length; i++) {
+          const obj = arr[i];
+          const image = obj["image"]
+          const id = obj["postId"]
+          const title = obj["title"]
+          const area = obj["area"]
+          const postStatus = obj["postStatus"] === "TRUE"
+          const tempHtml = `
+            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                <div class="block-4 text-center border">
+                  <figure class="block-4-image">
+                    <a onclick="window.location.href='/cookProgramPost-single.html?id=${id}'"><img src="${image}" style="height: 200px;" alt="Image placeholder" class="img-fluid"></a>
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a onclick="window.location.href='/cookProgramPost-single.html?id=${id}'">${title}</a></h3>
+                    <p class="mb-0">${area}</p>
+                    <p class="text-primary font-weight-bold">${postStatus ? "모집 중" : "모집 완료"}</p>
+                  </div>
+                </div>
+              </div>
+            `
+          $("#card_box").append(tempHtml)
+
+        }
+      },
+    })
+  }
+
+</script>
+
+</body>
+<footer class="site-footer border-top">
+  <div class="container">
+    <div class="row pt-5 mt-5 text-center">
+      <div class="col-md-12">
+        <p>
+          This site is made with Naemeal by MegaIT
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</html>
