@@ -195,7 +195,7 @@
     form.append('requestDto', new Blob([JSON.stringify(data)], {type: "application/json"}));
 
     const settings = {
-      "url": "https://43.201.189.131:8080/posts",
+      "url": "https://api.naemeal.store/posts",
       "method": "POST",
       "timeout": 0,
       "headers": {
@@ -218,7 +218,7 @@
   function userprofile() {
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/profiles/my",
+      url: "https://api.naemeal.store/profiles/my",
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -234,7 +234,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/posts/" + id,
+      url: "https://api.naemeal.store/posts/" + id,
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -262,7 +262,7 @@
     form.append('requestDto', new Blob([JSON.stringify(data)], {type: "application/json"}));
 
     const settings = {
-      "url": "https://43.201.189.131:8080/posts/" + id,
+      "url": "https://api.naemeal.store/posts/" + id,
       "method": "PATCH",
       "timeout": 0,
       "headers": {

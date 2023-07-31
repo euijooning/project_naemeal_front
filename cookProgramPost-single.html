@@ -617,7 +617,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/cookprogram/" + id,
+      url: "https://api.naemeal.store/cookprogram/" + id,
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -656,7 +656,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "DELETE",
-      url: "https://43.201.189.131:8080/cookprogram/" + id,
+      url: "https://api.naemeal.store/cookprogram/" + id,
       data: {},
       headers: {
         Authorization: localStorage.getItem("accessToken")
@@ -682,7 +682,7 @@
   function userprofile() {
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/profiles/my",
+      url: "https://api.naemeal.store/profiles/my",
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -702,7 +702,7 @@
   function enrollment() {
     const id = document.location.href.split("=")[1];
     $.ajax({
-      url: "https://43.201.189.131:8080/posts/" + id + "/enrollments",
+      url: "https://api.naemeal.store/posts/" + id + "/enrollments",
       method: "POST",
       timeout: 0,
       headers: {
@@ -735,7 +735,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/posts/" + id + "/enrollments",
+      url: "https://api.naemeal.store/posts/" + id + "/enrollments",
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -779,7 +779,7 @@
     // url에서 해당 postId값을 가져옵니다.
     const id = document.location.href.split("=")[1];
     const settings = {
-      "url": "https://43.201.189.131:8080/posts/" + id + "/comments",
+      "url": "https://api.naemeal.store/posts/" + id + "/comments",
       "method": "GET",
       "timeout": 0,
       "headers": {
@@ -843,7 +843,7 @@
     // url에서 해당 postId값을 가져옵니다.
     const id = document.location.href.split("=")[1];
     const settings = {
-      "url": "https://43.201.189.131:8080/posts/" + id + "/comments",
+      "url": "https://api.naemeal.store/posts/" + id + "/comments",
       "method": "POST",
       "timeout": 0,
       "headers": {
@@ -873,7 +873,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "GET",
-      url: "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments",
+      url: "https://api.naemeal.store/posts/" + id + "/comments",
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -896,7 +896,7 @@
     const id = document.location.href.split("=")[1];
 
     const settings = {
-      "url": "https://api.volunteering.store:8080/volunteerWorkPosts/" + id + "/comments/" + id2,
+      "url": "https://api.naemeal.store/posts/" + id + "/comments/" + id2,
       "method": "PATCH",
       "timeout": 0,
       "headers": {
@@ -922,7 +922,7 @@
     var id2 = $(e.target).data('id2');
 
     const settings = {
-      "url": "https://43.201.189.131:8080/posts/" + id + "/comments/" + id2,
+      "url": "https://api.naemeal.store/posts/" + id + "/comments/" + id2,
       "method": "DELETE",
       "timeout": 0,
       "headers": {

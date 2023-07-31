@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta name="_csrf" th:content="${_csrf.token}">
   <meta name="_csrf_header" th:content="${_csrf.headerName}">
@@ -174,7 +174,7 @@
   function userprofile() {
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/profiles/my",
+      url: "https://api.naemeal.store/profiles/my",
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -204,7 +204,7 @@
 
     const settings = {
 
-      "url": "https://43.201.189.131:8080/profiles/my",
+      "url": "https://api.naemeal.store/profiles/my",
       "method": "PATCH",
       "timeout": 0,
       "headers": {

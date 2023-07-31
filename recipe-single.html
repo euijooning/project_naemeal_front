@@ -133,7 +133,7 @@
       const id = document.location.href.split("=")[1];
       $.ajax({
         type: "GET",
-        url: "https://43.201.189.131:8080/posts/" + id,
+        url: "https://api.naemeal.store/posts/" + id,
         data: {},
         headers: {
           "Authorization": localStorage.getItem('accessToken')
@@ -157,7 +157,7 @@
     function deleteRecipe() {
       const id = document.location.href.split("=")[1];
       var settings = {
-        "url": "https://43.201.189.131:8080/posts/" + id,
+        "url": "https://api.naemeal.store/posts/" + id,
         "method": "DELETE",
         "timeout": 0,
         "headers": {

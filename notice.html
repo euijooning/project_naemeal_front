@@ -298,7 +298,7 @@
 
   function loadNoticeList() {
     const settings = {
-      "url": "https://43.201.189.131:8080/admin/notices",
+      "url": "https://api.naemeal.store/admin/notices",
       "method": "GET",
       "timeout": 0,
       "headers": {
@@ -351,7 +351,7 @@
   // 공지사항 작성하기
   function post_notice() {
     const settings = {
-      "url": "https://43.201.189.131:8080/admin/notices",
+      "url": "https://api.naemeal.store/admin/notices",
       "method": "POST",
       "timeout": 0,
       "headers": {
@@ -378,7 +378,7 @@
   function patch_notice() {
     console.log(currentNoticeId);
     const settings = {
-      "url": "https://43.201.189.131:8080/admin/notices/" + currentNoticeId,
+      "url": "https://api.naemeal.store/admin/notices/" + currentNoticeId,
       "method": "PATCH",
       "timeout": 0,
       "headers": {
@@ -402,7 +402,7 @@
     currentNoticeId = $(this).attr('notice-id');
 
     const settings = {
-      "url": "https://43.201.189.131:8080/admin/notices/" + currentNoticeId,
+      "url": "https://api.naemeal.store/admin/notices/" + currentNoticeId,
       "method": "DELETE",
       "timeout": 0,
       "headers": {
@@ -424,7 +424,7 @@
     // 공지사항 내용 조회
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/admin/notices/" + currentNoticeId,
+      url: "https://api.naemeal.store/admin/notices/" + currentNoticeId,
       headers: {
         "Authorization": localStorage.getItem('accessToken'),
         "Content-Type": "application/json"

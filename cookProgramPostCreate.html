@@ -223,7 +223,7 @@
     form.append('requestDto', new Blob([JSON.stringify(data)], {type: 'application/json'}));
 
     const settings = {
-      "url": "https://api.volunteering.store:8080/volunteerWorkPosts",
+      "url": "https://api.naemeal.store/cookProgram",
       "method": "POST",
       "timeout": 0,
       "headers": {
@@ -246,7 +246,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "GET",
-      url: "https://43.201.189.131:8080/posts/cookprogram" + id,
+      url: "https://api.naemeal.store/posts/cookprogram" + id,
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -283,7 +283,7 @@
 
     const settings = {
 
-      "url": "https://43.201.189.131:8080/posts/cookprogram" + id,
+      "url": "https://api.naemeal.store/posts/cookprogram" + id,
       "method": "PATCH",
       "timeout": 0,
       "headers": {
