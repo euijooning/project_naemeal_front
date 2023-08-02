@@ -1,119 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>프로젝트 내밀 [My Meal]</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <title>프로젝트 내밀 [My Meal]</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"
+    />
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
 
+    <link rel="stylesheet" href="./css/aos.css" />
 
-  <link rel="stylesheet" href="./css/aos.css">
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="site-wrap">
+      <header class="site-navbar" role="banner">
+        <div class="site-navbar-top">
+          <div class="container">
+            <div class="row align-items-center">
+              <div
+                class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left"
+              >
+                <form action="" class="site-block-top-search">
+                  <span class="icon icon-search2"></span>
+                  <input
+                    type="text"
+                    class="form-control border-0"
+                    placeholder="Search"
+                  />
+                </form>
+              </div>
 
-  <link rel="stylesheet" href="./css/style.css">
+              <div
+                class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center"
+              >
+                <div class="site-logo">
+                  <a href="index.html" class="js-logo-clone">NaeMeal</a>
+                </div>
+              </div>
 
-</head>
-<body>
-
-<div class="site-wrap">
-  <header class="site-navbar" role="banner">
-    <div class="site-navbar-top">
-      <div class="container">
-        <div class="row align-items-center">
-
-          <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-            <form action="" class="site-block-top-search">
-              <span class="icon icon-search2"></span>
-              <input type="text" class="form-control border-0" placeholder=Search>
-            </form>
-          </div>
-
-          <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-            <div class="site-logo">
-              <a href="index.html" class="js-logo-clone">NaeMeal</a>
+              <div class="col-6 col-md-12 order-3 order-md-3 text-right">
+                <div class="site-top-icons">
+                  <ul>
+                    <li>
+                      <a><span id="loginUser"></span></a>
+                    </li>
+                    <li>
+                      <a href="/login.html"
+                        ><span class="icon icon-person"></span
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="/mypage.html"><span>MyPage</span></a>
+                    </li>
+                    <li class="d-inline-block d-md-none ml-md-0">
+                      <a href="#" class="site-menu-toggle js-menu-toggle"
+                        ><span class="icon-menu"></span
+                      ></a>
+                    </li>
+                    <button type="button" class="submit" onclick="signout()">
+                      logout
+                    </button>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="col-6 col-md-12 order-3 order-md-3 text-right">
-            <div class="site-top-icons">
-              <ul>
-                <li><a><span id="loginUser"></span></a></li>
-                <li><a href="/login.html"><span class="icon icon-person"></span></a></li>
-                <li><a href="/mypage.html"><span>MyPage</span></a></li>
-                <li class="d-inline-block d-md-none ml-md-0"><a href="#"
-                                                                class="site-menu-toggle js-menu-toggle"><span
-                    class="icon-menu"></span></a></li>
-                <button type="button" class="submit" onclick="signout()">logout</button>
-              </ul>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </div>
-    <nav class="site-navigation text-right text-md-center" role="navigation">
-      <div class="container">
-        <ul class="site-menu js-clone-nav d-none d-md-block">
-          <li class="has-children">
-            <a href="about.html">프로그램</a>
-            <ul class="dropdown">
-              <li><a href="cookProgramPost_menu1.html">요리 프로그램</a></li>
+        <nav
+          class="site-navigation text-right text-md-center"
+          role="navigation"
+        >
+          <div class="container">
+            <ul class="site-menu js-clone-nav d-none d-md-block">
+              <li class="has-children">
+                <a href="about.html">프로그램</a>
+                <ul class="dropdown">
+                  <li>
+                    <a href="cookProgramPost_menu1.html">요리 프로그램</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="myRecipe.html">나만의 레시피</a></li>
+              <li><a href="notice.html">공지사항</a></li>
             </ul>
-          </li>
-          <li><a href="myRecipe.html">나만의 레시피</a></li>
-          <li><a href="notice.html">공지사항</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+          </div>
+        </nav>
+      </header>
 
-  <div class="site-blocks-cover" style="background-image: url(images/내밀9.png);"
-       data-aos="fade">
-    <div class="container">
-      <div class="row align-items-start align-items-md-center justify-content-end">
-        <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-          <h1 class="mb-2">Share Your <br>Unique Recipe</h1>
-          <div class="intro-text text-center text-md-left">
-            <p class="mb-4">당신의 특별한 레시피를 공유하세요!</p>
-            <p>
-              <a href="myRecipe.html" class="btn btn-sm btn-primary">Go</a>
-            </p>
+      <div
+        class="site-blocks-cover"
+        style="background-image: url(images/내밀9.png)"
+        data-aos="fade"
+      >
+        <div class="container">
+          <div
+            class="row align-items-start align-items-md-center justify-content-end"
+          >
+            <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
+              <h1 class="mb-2">Share Your <br />Unique Recipe</h1>
+              <div class="intro-text text-center text-md-left">
+                <p class="mb-4">당신의 특별한 레시피를 공유하세요!</p>
+                <p>
+                  <a href="myRecipe.html" class="btn btn-sm btn-primary">Go</a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <footer class="site-footer border-top">
-    <div class="container">
-      <div class="row pt-5 mt-5 text-center">
-        <div class="col-md-12">
-          <p>
-            This site is made with Naemeal by MegaIT
-          </p>
+      <footer class="site-footer border-top">
+        <div class="container">
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <p>This site is made with Naemeal by MegaIT</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
-  </footer>
 
-</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
 
-
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-
-<script src="js/main.js"></script>
-
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

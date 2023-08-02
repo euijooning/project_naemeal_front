@@ -1,130 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인 / 회원가입</title>
-  <link rel="stylesheet" type="text/css" href="./css/login.css">
-</head>
-<a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank"
-   class="icon-link">
-</a>
-<body>
-<div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-  <div class="site-logo">
-    <p class="tip"><a href="index.html" class="js-logo-clone">홈으로</a></p>
-  </div>
-</div>
-
-<div class="cont">
-  <div class="form sign-in">
-    <h2>로그인</h2>
-    <label>
-      <span>이메일</span>
-      <input id="login_id" type="email"/>
-    </label>
-    <label>
-      <span>비밀번호</span>
-      <input id="login_password" type="password"/>
-    </label>
-    <button type="button" class="submit" onclick="login()">로그인하기</button>
-  </div>
-  <div class="sub-cont">
-    <div class="img">
-      <div class="img__text m--up">
-        <h2>회원가입</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 / 회원가입</title>
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+  </head>
+  <a
+    href="https://dribbble.com/shots/3306190-Login-Registration-form"
+    target="_blank"
+    class="icon-link"
+  >
+  </a>
+  <body>
+    <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+      <div class="site-logo">
+        <p class="tip"><a href="index.html" class="js-logo-clone">홈으로</a></p>
       </div>
-      <div class="img__text m--in">
+    </div>
+
+    <div class="cont">
+      <div class="form sign-in">
         <h2>로그인</h2>
+        <label>
+          <span>이메일</span>
+          <input id="login_id" type="email" />
+        </label>
+        <label>
+          <span>비밀번호</span>
+          <input id="login_password" type="password" />
+        </label>
+        <button type="button" class="submit" onclick="login()">
+          로그인하기
+        </button>
       </div>
-      <div class="img__btn">
-        <span class="m--up">회원가입</span>
-        <span class="m--in">로그인</span>
+      <div class="sub-cont">
+        <div class="img">
+          <div class="img__text m--up">
+            <h2>회원가입</h2>
+          </div>
+          <div class="img__text m--in">
+            <h2>로그인</h2>
+          </div>
+          <div class="img__btn">
+            <span class="m--up">회원가입</span>
+            <span class="m--in">로그인</span>
+          </div>
+        </div>
+        <div class="form sign-up">
+          <h2>회원가입</h2>
+          <label>
+            <span>이메일</span>
+            <input id="signUp_id" type="email" />
+          </label>
+          <label>
+            <span>닉네임</span>
+            <input id="nickname" type="text" />
+          </label>
+          <label>
+            <span>비밀번호</span>
+            <input id="signUp_password" type="password" />
+          </label>
+          <label>
+            <span>관리자 토큰</span>
+            <input id="adminToken" type="text" />
+          </label>
+          <button type="button" class="submit" onclick="signup()">
+            회원가입하기
+          </button>
+        </div>
       </div>
     </div>
-    <div class="form sign-up">
-      <h2>회원가입</h2>
-      <label>
-        <span>이메일</span>
-        <input id="signUp_id" type="email"/>
-      </label>
-      <label>
-        <span>닉네임</span>
-        <input id="nickname" type="text"/>
-      </label>
-      <label>
-        <span>비밀번호</span>
-        <input id="signUp_password" type="password"/>
-      </label>
-      <label>
-        <span>관리자 토큰</span>
-        <input id="adminToken" type="text"/>
-      </label>
-      <button type="button" class="submit" onclick="signup()">회원가입하기</button>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script>
+      document
+        .querySelector(".img__btn")
+        .addEventListener("click", function () {
+          document.querySelector(".cont").classList.toggle("s--signup");
+        });
 
-    </div>
-  </div>
-</div>
-<script src="./js/jquery-3.3.1.min.js"></script>
-<script src="./js/jquery-ui.js"></script>
-<script>
-  document.querySelector('.img__btn').addEventListener('click', function () {
-    document.querySelector('.cont').classList.toggle('s--signup');
-  });
-
-  function signup() {
-    const dataObj = {
-      "userId": $('#signUp_id').val(),
-      "password": $('#signUp_password').val(),
-      "nickname": $('#nickname').val()
-    };
-    if ($('#adminToken').val() !== '') {
-      dataObj.adminToken = $('#adminToken').val();
-    }
-    const settings = {
-      "url": "https://api.naemeal.store/users/signup",
-      "method": "POST",
-      "timeout": 0,
-      "headers": {
-        "Content-Type": "application/json"
-      },
-      "data": JSON.stringify(dataObj)
-    };
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-      alert('회원가입이 완료되었습니다.')
-      document.querySelector('.cont').classList.toggle('s--signup');
-    });
-  }
-
-  function login() {
-    const settings = {
-      "url": "https://api.naemeal.store/users/signin",
-      "method": "POST",
-      "timeout": 0,
-      "headers": {
-        "Content-Type": "application/json"
-      },
-      "data": JSON.stringify({
-        "userId": $('#login_id').val(),
-        "password": $('#login_password').val()
-      }),
-    };
-    $.ajax(settings).done(function (response, status, xhr) {
-      console.log(response);
-      console.log(xhr.getResponseHeader('Authorization'))
-      localStorage.setItem('accessToken', xhr.getResponseHeader('Authorization'))
-      alert('로그인이 완료되었습니다.');
-      window.location = '/index.html'
-    }).fail(function (response) {
-      if (response.responseJSON.statusCode == 400) {
-        alert('아이디와 비밀번호가 일치하지 않습니다.');
-      } else {
-        alert('서버에 문제가 발생하였습니다.');
+      function signup() {
+        const dataObj = {
+          userId: $("#signUp_id").val(),
+          password: $("#signUp_password").val(),
+          nickname: $("#nickname").val(),
+        };
+        if ($("#adminToken").val() !== "") {
+          dataObj.adminToken = $("#adminToken").val();
+        }
+        const settings = {
+          url: "https://api.naemeal.store/users/signup",
+          method: "POST",
+          timeout: 0,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify(dataObj),
+        };
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+          alert("회원가입이 완료되었습니다.");
+          document.querySelector(".cont").classList.toggle("s--signup");
+        });
       }
-    });
-  }
-</script>
-</body>
+
+      function login() {
+        const settings = {
+          url: "https://api.naemeal.store/users/signin",
+          method: "POST",
+          timeout: 0,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify({
+            userId: $("#login_id").val(),
+            password: $("#login_password").val(),
+          }),
+        };
+        $.ajax(settings)
+          .done(function (response, status, xhr) {
+            console.log(response);
+            console.log(xhr.getResponseHeader("Authorization"));
+            localStorage.setItem(
+              "accessToken",
+              xhr.getResponseHeader("Authorization")
+            );
+            alert("로그인이 완료되었습니다.");
+            window.location = "/index.html";
+          })
+          .fail(function (response) {
+            if (response.responseJSON.statusCode == 400) {
+              alert("아이디와 비밀번호가 일치하지 않습니다.");
+            } else {
+              alert("서버에 문제가 발생하였습니다.");
+            }
+          });
+      }
+    </script>
+  </body>
 </html>
