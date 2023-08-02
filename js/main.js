@@ -204,7 +204,7 @@ jQuery(document).ready(function($) {
 
 function getUserMe(){
 	var settings = {
-		"url": "https://api.naemeal.store/mypage/profiles",
+		"url": "http://43.201.189.131:8080/mypage/profiles",
 		"method": "GET",
 		"timeout": 0,
 		"headers": {
@@ -223,7 +223,7 @@ function getUserMe(){
 
 function signout(){
 	var settings = {
-		"url": "https://api.naemeal.store/users/signout",
+		"url": "http://43.201.189.131:8080/users/signout",
 		"method": "POST",
 		"timeout": 0,
 		"headers": {
