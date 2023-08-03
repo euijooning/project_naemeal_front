@@ -173,25 +173,23 @@
         </div>
 
         <tr>
-          <th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="updatePost()">수정</a>
-          </th>
-          <th><a type="button" class="buy-now btn btn-sm btn-primary" onclick="deletePost()">삭제</a>
-          </th>
+          <th><a type="button" class="button" onclick="updatePost()">수정</a></th>
+          <th><a type="button" class="button" onclick="deletePost()">삭제</a></th>
         <tr>
 
-
+      </div>
+      <div id="comment-box">
+        <div class="area-write">
+    <textarea class="field" placeholder="댓글을 입력하세요." name="comments" id="comments" cols="80"
+              rows="1"></textarea>
+        </div>
+        <button type="button" class="btn btn-success btn-sm" onclick="writeComment()">작성</button>
       </div>
     </div>
   </div>
 </div>
 
-<div id="comment-box">
-  <div class="area-write">
-    <textarea class="field" placeholder="댓글을 입력하세요." name="comments" id="comments" cols="80"
-              rows="1"></textarea>
-  </div>
-  <button type="button" class="btn btn-success btn-sm" onclick="writeComment()">작성</button>
-</div>
+
 
 
 <!-- Edit Modal HTML  수정하기  -->
@@ -275,6 +273,8 @@
     border-radius: 3px;
   }
 
+  /*
+  /* 수정 삭제 버튼 스타일
   .button {
     margin-bottom: 4px;
     padding: 8px 12px;
@@ -289,6 +289,28 @@
 
   .button:focus {
     outline: none;
+  }
+  /* 버튼 텍스트 색상 변경
+
+   */
+  .button {
+    margin-bottom: 4px;
+    padding: 8px 12px;
+    border: 1px solid #7971ea;
+    border-radius: 3px;
+    background: #7971ea;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button a {
+    text-decoration-color: white;
   }
 
   .button--warning {
