@@ -317,9 +317,9 @@
 
         const notice_date = new Date(e["createdAt"])
         const year = notice_date.getFullYear();
-        const month = notice_date.getMonth();
+        const month = notice_date.getMonth() + 1;
         const date = notice_date.getDate();
-        const hour = notice_date.getHours()
+        const hour = notice_date.getHours() + 9;
         const min = notice_date.getMinutes();
         const temp_html = `
       <tr>
