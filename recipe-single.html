@@ -165,6 +165,7 @@
       },
     };
     $.ajax(settings).done(function (response) {
+      console.log(response);
       alert('레시피를 삭제하였습니다.')
       window.location.replace('/myRecipe.html');
     });
