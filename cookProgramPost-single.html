@@ -639,7 +639,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "GET",
-      url: "https://api.naemeal.store/cookprogram/" + id,
+      url: "https://api.naemeal.store/cookProgram/" + id,
       data: {},
       headers: {
         "Authorization": localStorage.getItem('accessToken')
@@ -678,7 +678,7 @@
     const id = document.location.href.split("=")[1];
     $.ajax({
       type: "DELETE",
-      url: "https://api.naemeal.store/cookprogram/" + id,
+      url: "https://api.naemeal.store/cookProgram/" + id,
       data: {},
       headers: {
         Authorization: localStorage.getItem("accessToken")
