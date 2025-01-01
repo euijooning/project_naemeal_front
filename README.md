@@ -11,5 +11,8 @@
 
 <br>
 
+## 화면 보기
+- https://naemeal.netlify.app/
+
 ## 프로젝트 정리 Notion
 - [![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://luxurious-crepe-3fd.notion.site/a8404cbdb31b4f3eae2020eb0383b326?pvs=4)
